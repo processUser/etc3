@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.koreait.ap.ApMapper">
+    <select id="selLocation" resultType="LocationCodeEntity">
+        select * from location_code
+    </select>
+
+    <select id="selApartmentList" resultType="ApartmentInfoEntity">
+        select A.dong, A.jibun, A.apartmentname, A.dealamount, A.buildyear, A.dealyear, A.dealmonth, A.dealday, A.areaforexclusiveuse, A.floor , B.nm AS locationnm
+        from apartment_info A
+        LEFT JOIN location_code B
+        ON A.locationcode = B.in_code
+        where A.out_code = #{out_code} and A.dealyear = ${year} and A.dealmonth = ${month}
+        order by A.dealamount desc
+    </select>
+
+    <select id="selApartmentInfo" resultType="ApartmentInfoEntity">
+        select iapart from apartment_info where out_code = #{out_code} and dealyear = ${year} and dealmonth = ${month} limit 0,1;
+    </select>
+
+    <select id="selLocationCode" resultType="LocationCodeEntity">
+        select in_code from location_code where out_code = #{out_code}
+    </select>
+
+    <insert id="insApartData">
+        insert into apartment_info (dealamount, buildyear, dealyear, dealmonth, dealday, dong, apartmentname, areaforexclusiveuse, jibun, floor, locationcode, out_code)
+        values (#{dealamount}, #{buildyear}, #{dealyear}, #{dealmonth}, #{dealday}, #{dong}, #{apartmentname}, ${areaforexclusiveuse}, #{jibun}, ${floor}, ${locationcode}, #{out_code})
+    </insert>
+
+</mapper>
