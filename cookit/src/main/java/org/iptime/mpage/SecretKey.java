@@ -4,10 +4,11 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.UUID;
 
+
 public class SecretKey {
     private static UUID uuid;
 
-    public static String makeUuid(){
+    public static String makeUuid(){ // UUID 를 생성해서 개인 비밀키로 이용
         uuid = UUID.randomUUID();
         return Base64.getUrlEncoder().encodeToString(uuid.toString().getBytes(StandardCharsets.UTF_8));
     }
