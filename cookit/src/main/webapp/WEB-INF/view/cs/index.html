@@ -9,33 +9,37 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- style -->
-
+    <link rel="stylesheet" href="/res/css/common.css">
+    <link rel="stylesheet" href="/res/css/cs.css">
 
 </head>
 <body>
     <!-- 헤더 -->
     <header id="header">
-        <h1>고객행복센터</h1>
         <nav class="gnb">
             <ul>
-                <li><a href="/login" class="line">로그인</a></li>
+                <li><a href="/login">로그인</a></li>
                 <li><a href="/main" class="line">cookit home</a></li>
             </ul>
         </nav>
+        <div class="csTitle">
+            <h1>고객행복센터</h1>
+        </div>
     </header>
-<hr>
     <!-- 내용 -->
-    <section>
-        <section>
-            <div>
-                <form>
-                    <input type="text" name="search" placeholder="궁금한 내용을 검색하세요">
-                    <button>검색 아이콘 넣기</button>
-                </form>
-            </div>
-        </section>
-        <section>
+    <section class="section1">
+        <form>
+            <input type="text" name="search" placeholder="궁금한 내용의 키워드를 입력하세요">
+            <button type="button"><span class="material-icons">search</span></button>
+        </form>
+    </section>
+<hr>
+    <span class="material-icons">face</span>
+    <span class="material-icons">search</span>
+    <section class="section2">
+        <article class="listWarp">
             <div>
                 <div>
                     공지사항
@@ -47,20 +51,15 @@
                     문의하기
                 </div>
             </div>
-        </section>
-    </section>
-<hr>
-    <section>
-        <h2>공지사항</h2>
-        <div><span>번호</span> 공지사항리스트 <span>날짜</span></div>
+        </article>
+        <article >
+            <h2>공지사항</h2>
+            <div><span>번호</span> 공지사항리스트 <span>날짜</span></div>
+        </article>
     </section>
 <hr>
     <!-- 푸터 -->
-    <footer class="footer space-between">
-        <!-- 푸터 로고 -->
-        <div class="footerLogoWrap">
-            <h1 class="footerLogo hide">cookit 고객행복센터</h1>
-        </div>
+    <footer class="footer">
         <div class="footerC">
             <ul>
                 <li><a href="">이용약관</a></li>
